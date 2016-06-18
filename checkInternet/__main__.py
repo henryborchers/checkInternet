@@ -2,7 +2,7 @@ from time import sleep
 from tkinter import messagebox
 import sys
 import datetime
-from internet import internet_on
+from checkInternet.internet import internet_on
 import argparse
 
 
