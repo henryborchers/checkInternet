@@ -1,5 +1,5 @@
 from time import sleep
-from tkinter import messagebox
+from tkinter import messagebox, Tk
 import sys
 import datetime
 from checkInternet.internet import internet_on
@@ -23,17 +23,24 @@ def report_internet():
     return x
 
 
-def check_internet(sleeptime=60):
+def check_internet(fail_callback, sleeptime=60):
     try:
         while report_internet():
             sleep(sleeptime)
         sys.stdout.write('\a')
         sys.stdout.flush()
-        messagebox.showerror(title="Internet gone", message="[{}] \nInternet down".format(str(datetime.datetime.now().isoformat())))
+        fail_callback()
     except KeyboardInterrupt:
         print()
         print("Exiting")
         pass
+
+
+def no_internet_tk():
+    window = Tk()
+    window.withdraw()
+    messagebox.showerror(title="Internet gone", message="[{}] \nInternet down".format(str(datetime.datetime.now().isoformat())))
+
 
 def main():
     parser = argparse.ArgumentParser(description="Checks to see to let you know if the internet is still accessible")
@@ -43,7 +50,7 @@ def main():
     print()
     print("Starting to monitor Internet access\n")
     print("Checking every {} second(s)".format(args.frequency))
-    check_internet(args.frequency)
+    check_internet(no_internet_tk, args.frequency)
     print("Goodbye")
 
 if __name__ == '__main__':
