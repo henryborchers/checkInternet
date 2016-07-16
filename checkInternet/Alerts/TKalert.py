@@ -1,5 +1,5 @@
 try:
-    from Alerts.alert import AlertHandler
+    from .alert import AlertHandler
     from tkinter import Tk, messagebox
 except Exception as e:
     raise ImportError(e)
