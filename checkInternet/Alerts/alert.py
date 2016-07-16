@@ -6,7 +6,7 @@ import sys
 class AlertHandler(metaclass=ABCMeta):
     def __init__(self, message):
         self.message = message
-        self.execute()
+        self.clicked = self.execute()
 
     @abstractmethod
     def execute(self):
