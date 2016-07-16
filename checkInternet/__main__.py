@@ -2,10 +2,10 @@ from time import sleep
 from tkinter import messagebox, Tk
 import sys
 import datetime
-# import checkInternet
+from checkInternet import alert, internet
 # from internet import internet_fail, internet_on
-import Alerts
-import internet
+# import Alerts
+# import internet
 import argparse
 
 
@@ -48,7 +48,7 @@ def main():
     print()
     print("Starting to monitor Internet access\n")
     print("Checking every {} second(s)".format(args.frequency))
-    check_internet(Alerts.Alert, args.frequency)
+    check_internet(alert, args.frequency)
     # check_internet(no_internet_tk, args.frequency)
     print("Goodbye")
 

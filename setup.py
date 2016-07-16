@@ -7,8 +7,8 @@ if sys.platform == "darwin":
 
 setup(
     name='CheckInternet',
-    version='0.2.2',
-    packages=['checkInternet'],
+    version='0.2.2a',
+    packages=['checkInternet', 'checkInternet.Alerts'],
     url='',
     license='',
     author='Henry Borchers',
