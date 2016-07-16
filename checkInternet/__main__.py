@@ -2,7 +2,10 @@ from time import sleep
 from tkinter import messagebox, Tk
 import sys
 import datetime
-from checkInternet.internet import internet_on
+# import checkInternet
+# from internet import internet_fail, internet_on
+import Alerts
+import internet
 import argparse
 
 
@@ -17,7 +20,7 @@ def reporter(f):
 
 @reporter
 def report_internet():
-    x = internet_on()
+    x = internet.multi_attempt()
     if x:
         print("[{}] Internet up. Press \"Ctrl + c\" to quit".format(str(datetime.datetime.now().isoformat())))
     return x
@@ -29,17 +32,12 @@ def check_internet(fail_callback, sleeptime=60):
             sleep(sleeptime)
         sys.stdout.write('\a')
         sys.stdout.flush()
-        fail_callback()
+        fail_callback("internet Down at {}".format(str(datetime.datetime.now().isoformat())))
     except KeyboardInterrupt:
         print()
         print("Exiting")
         pass
 
-
-def no_internet_tk():
-    window = Tk()
-    window.withdraw()
-    messagebox.showerror(title="Internet gone", message="[{}] \nInternet down".format(str(datetime.datetime.now().isoformat())))
 
 
 def main():
@@ -50,7 +48,8 @@ def main():
     print()
     print("Starting to monitor Internet access\n")
     print("Checking every {} second(s)".format(args.frequency))
-    check_internet(no_internet_tk, args.frequency)
+    check_internet(Alerts.Alert, args.frequency)
+    # check_internet(no_internet_tk, args.frequency)
     print("Goodbye")
 
 if __name__ == '__main__':
