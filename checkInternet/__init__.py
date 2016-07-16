@@ -1,0 +1,1 @@
+from checkInternet.internet import internet_on
