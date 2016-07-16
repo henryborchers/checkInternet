@@ -1,1 +1,1 @@
-from Alerts.alert import Alert
+from .alert import Alert
