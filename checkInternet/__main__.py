@@ -3,7 +3,7 @@ from tkinter import messagebox, Tk
 import sys
 import datetime
 from checkInternet.Alerts import alert
-import internet
+from checkInternet import internet
 # from internet import internet_fail, internet_on
 # import Alerts
 # import internet
