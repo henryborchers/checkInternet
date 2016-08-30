@@ -1,2 +1,2 @@
-from checkInternet.internet import internet_on
-from checkInternet.Alerts import alert
+from .internet import internet_on
+from .Alerts import alert
