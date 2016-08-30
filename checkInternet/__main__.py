@@ -2,7 +2,8 @@ from time import sleep
 from tkinter import messagebox, Tk
 import sys
 import datetime
-from checkInternet import alert, internet
+from Alerts import alert
+import internet
 # from internet import internet_fail, internet_on
 # import Alerts
 # import internet
