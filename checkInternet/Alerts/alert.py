@@ -1,5 +1,4 @@
 from abc import ABCMeta, abstractmethod
-
 import sys
 
 
@@ -28,10 +27,10 @@ def Alert(message):
 def _alert_factory(message, engine="tk"):
     try:
         if engine == "tk":
-            from Alerts.tkAlert import AlertTK
+            from tkAlert import AlertTK
             return AlertTK(message)
         if engine == "cocoa":
-            from Alerts.CocoAlert import AlertChoca
+            from CocoAlert import AlertChoca
             return AlertChoca(message)
         else:
             raise AttributeError("{} is an invalid error engine".format(engine))
