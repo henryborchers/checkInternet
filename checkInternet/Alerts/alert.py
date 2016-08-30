@@ -27,15 +27,15 @@ def Alert(message):
 def _alert_factory(message, engine="tk"):
     try:
         if engine == "tk":
-            from tkAlert import AlertTK
+            from .tkAlert import AlertTK
             return AlertTK(message)
         if engine == "cocoa":
-            from CocoAlert import AlertChoca
-            return AlertChoca(message)
+            from .CocoAlert import AlertCoca
+            return AlertCoca(message)
         else:
             raise AttributeError("{} is an invalid error engine".format(engine))
     except ImportError as e:
-        raise ImportError("Engine unavailable")
+        raise ImportError("Engine unavailable: {}".format(e))
 
 # class AlertOSX(AlertHandler):
 #     def execute(self):
