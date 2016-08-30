@@ -7,7 +7,7 @@ if sys.platform == "darwin":
 
 setup(
     name='CheckInternet',
-    version='0.2.2a',
+    version='0.2.3',
     packages=['checkInternet', 'checkInternet.Alerts'],
     url='',
     license='',

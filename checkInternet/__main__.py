@@ -48,7 +48,7 @@ def main():
     print()
     print("Starting to monitor Internet access\n")
     print("Checking every {} second(s)".format(args.frequency))
-    check_internet(alert, args.frequency)
+    check_internet(alert.Alert, args.frequency)
     # check_internet(no_internet_tk, args.frequency)
     print("Goodbye")
 

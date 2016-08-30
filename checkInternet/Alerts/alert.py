@@ -19,6 +19,7 @@ def Alert(message):
             return _alert_factory(message=message, engine="cocoa")
 
         except ImportError:
+            print("Unable to use cocoa.", file=sys.stderr)
             pass
 
     return _alert_factory(message=message)
